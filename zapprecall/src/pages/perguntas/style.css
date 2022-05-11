@@ -49,3 +49,16 @@
     height: 27px;
     border-radius: 5px;
 }
+.redLine{
+    text-decoration: line-through;
+    color: #FF3030;
+   
+}
+.orangeLine{
+    text-decoration: line-through;
+    color: #FF922E;
+}
+.greenLine{
+    text-decoration: line-through;
+    color: #2FBE34;
+}

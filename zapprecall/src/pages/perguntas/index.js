@@ -3,7 +3,9 @@ import {  useState } from "react";
 import "./style.css";
 const logoZapPequena = "assets/logo-pequeno.png"
 const seta = "assets/perguntaSeta.png"
-
+const erro = "assets/Vector.png"
+const laranja = "assets/laranjinha.png"
+const verde = "assets/certo.png"
 
 const perguntasObj = [
     {
@@ -40,24 +42,48 @@ const perguntasObj = [
     }
 ]
 function Pergunta({question , index , react}){
-    const [card , setCard] = useState(true)
-    if(card === true){
+    const [card , setCard] = useState(0)
+    if(card === 0){
     return(
         <div key={index} className="pergunta">
             <h1 className="fonte">{question}</h1>
-            <img onClick={() => setCard(false)} className="diminuir" src={seta} alt="seta de pergunt" />
+            <img onClick={() => setCard(1)} className="diminuir" src={seta} alt="seta de pergunt" />
         </div>
     )
     }
-    if(card === false){
+    if(card === 1){
         return (
             <div key={index} className="react">
             <h1 className="fonte">{react}</h1>
              <div>
-                 <h3 className="red">red</h3>
-                 <h3 className="orange">yellow</h3>
-                 <h3 className="green">green</h3>
+                 <h3 onClick={() => setCard(2)} className="red">red</h3>
+                 <h3  onClick={()=> setCard(3)}className="orange">yellow</h3>
+                 <h3  onClick={ () => setCard(4)} className="green">green</h3>
              </div>
+        </div>
+        )
+    }
+    if(card === 2){
+        return(
+            <div key={index} className="pergunta">
+            <h1 className="fonte redLine">{question}</h1>
+            <img onClick={() => setCard(1)} className="diminuir" src={erro} alt="seta de pergunt" />
+        </div>
+        )
+    }
+   if(card === 3){
+       return(
+     <div key={index} className="pergunta">
+        <h1 className="fonte orangeLine">{question}</h1>
+        <img onClick={() => setCard(1)} className="diminuir" src={laranja} alt="seta de pergunt" />
+    </div>
+       )
+    }
+    if (card === 4) {
+        return(
+        <div key={index} className="pergunta">
+            <h1 className="fonte greenLine">{question}</h1>
+            <img onClick={() => setCard(1)} className="diminuir" src={verde} alt="seta de pergunt" />
         </div>
         )
     }
