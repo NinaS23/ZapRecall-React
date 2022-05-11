@@ -51,9 +51,13 @@ function Pergunta({question , index , react}){
     }
     if(card === false){
         return (
-            <div key={index} className="pergunta">
+            <div key={index} className="react">
             <h1 className="fonte">{react}</h1>
-            <img onClick={() => setCard(false)} className="diminuir" src={seta} alt="seta de pergunt" />
+             <div>
+                 <h3 className="red">red</h3>
+                 <h3 className="orange">yellow</h3>
+                 <h3 className="green">green</h3>
+             </div>
         </div>
         )
     }
