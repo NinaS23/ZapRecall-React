@@ -104,7 +104,7 @@ export default function Perguntas() {
                  />
               )
           })}
-          <footer>0/8 CONCLUÍDOS</footer>
+          <footer className="finalPage">0/8 CONCLUÍDOS</footer>
         </div>
     )
 }

@@ -62,3 +62,17 @@
     text-decoration: line-through;
     color: #2FBE34;
 }
+.finalPage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    min-height: 80px;
+   
+    
+}
