@@ -47,10 +47,11 @@ const perguntasObj = [
         resp:"Dizer para o React quais informações quando atualizadas devem renderizar a tela novamente"
     }
 ]
-function Pergunta({question , index , react , resp , feito}){
+function Pergunta({question , index , react , resp , feito }){
     const [card , setCard] = useState({
         etapa: 0,
-        resultado: ""
+        resultado: "",
+        img: ""
       })
     const {etapa, resultado} = card;
     if(etapa === 0){
@@ -72,21 +73,22 @@ function Pergunta({question , index , react , resp , feito}){
 if( etapa === 2){
     const botoes = [
         { texto: "Não lembrei", resultado: "erro" },
-        { texto: "Quase não lembrei", resultado: "duvida" },
-        { texto: "Zap!", resultado: "acerto"}
+        { texto: "Quase não lembrei", resultado: "duvida"  },
+        { texto: "Zap!", resultado: "acerto" }
     ]
     return (
           <div key={index} className="react">
           <p>{resp}</p>
           <div className="botoes">
           {
-            botoes.map(({texto, resultado}) => {
+            botoes.map(({texto, resultado }) => {
               return (
                 <button 
                   key={resultado}
                   className={resultado} 
                   onClick={()=>  setCard({ etapa: 3 , resultado})}
                    feito={resultado}
+                 
                    
 
                 >
@@ -102,14 +104,13 @@ if( etapa === 2){
         </div>
       )
      
-    }
-
+  }
     if(etapa === 3){
         return (
             <>
                 <div key={index} className="pergunta">
                     <h1 className={` fonte Icone${resultado}`}>{question}</h1>
-                    <Icone icone={resultado}/>
+                   <Icone icone={resultado} />
                 </div>
             </>
         )
