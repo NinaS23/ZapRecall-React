@@ -1,6 +1,7 @@
 import {  useState } from "react";
 import "./style.css";
 import Icone from "../../Icones";
+import Footer from "../footer";
 const logoZapPequena = "assets/logo-pequeno.png"
 const seta = "assets/perguntaSeta.png"
 const setinha = "assets/setinha.png"
@@ -51,8 +52,9 @@ function Pergunta({question , index , react , resp , feito }){
     const [card , setCard] = useState({
         etapa: 0,
         resultado: "",
-        img: ""
+      
       })
+
     const {etapa, resultado} = card;
     if(etapa === 0){
     return(
@@ -81,14 +83,15 @@ if( etapa === 2){
           <p>{resp}</p>
           <div className="botoes">
           {
-            botoes.map(({texto, resultado }) => {
+            botoes.map(({texto, resultado  }) => {
               return (
                 <button 
                   key={resultado}
                   className={resultado} 
-                  onClick={()=>  setCard({ etapa: 3 , resultado})}
-                   feito={resultado}
-                 
+                  onClick={()=>  setCard({ etapa: 3 , resultado} )}
+                  feito={resultado}
+                  
+                   
                    
 
                 >
@@ -106,12 +109,14 @@ if( etapa === 2){
      
   }
     if(etapa === 3){
+        
         return (
             <>
                 <div key={index} className="pergunta">
                     <h1 className={` fonte Icone${resultado}`}>{question}</h1>
                    <Icone icone={resultado} />
                 </div>
+              
             </>
         )
     }
@@ -135,7 +140,7 @@ export default function Perguntas() {
                  />
               )
           })}
-          <footer className="finalPage">0/8 CONCLUÍDOS</footer>
+         <Footer />
         </div>
     )
 }
