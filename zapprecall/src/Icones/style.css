@@ -1,0 +1,13 @@
+.Icone .erro{
+    text-decoration: line-through;
+    color: #FF3030;
+   
+}
+.Icone .duvida{
+    text-decoration: line-through;
+    color: #FF922E;
+}
+.Icone  .acerto{
+    text-decoration: line-through;
+    color: #2FBE34;
+}

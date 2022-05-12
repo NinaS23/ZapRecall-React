@@ -1,92 +1,121 @@
-
 import {  useState } from "react";
 import "./style.css";
+import Icone from "../../Icones";
 const logoZapPequena = "assets/logo-pequeno.png"
 const seta = "assets/perguntaSeta.png"
-const erro = "assets/Vector.png"
-const laranja = "assets/laranjinha.png"
-const verde = "assets/certo.png"
+const setinha = "assets/setinha.png"
 
 const perguntasObj = [
     {
         question: "pergunta 1",
-        react:  " o React é_"
+        react:  " o React é_",
+        resp : "Uma biblioteca JavaScript para construção de interfaces" 
     },
     {
         question: "pergunta 2",
-        react: "O que é JSX? "
+        react: "O que é JSX? ",
+        resp:"Uma extensão de linguagem do JavaScript" 
     },
     {
         question: "pergunta 3",
-        react : "componentes devem inicar com__"
+        react : "componentes devem inicar com__",
+        resp: "Letra maiúscula"
     },
     {
         question: "pergunta 4",
-        react:"podemos colocar __ dentro do JSX"
+        react:"podemos colocar __ dentro do JSX",
+        resp:"Expressões" ,
     },
     {
         question: "pergunta 5",
-        react: " o ReactDom nos ajuda__"
+        react: " o ReactDom nos ajuda__",
+        resp:"Interagindo com a DOM para colocar componentes React na tela"
     },
     {
         question: "pergunta 6",
-        react:"usamos npm para__"
+        react:"usamos npm para__",
+        resp:"Gerenciar os pacotes necessários e suas dependências"
     },
     {
         question: "pergunta 7",
-        react:"usamos props para__ "
+        react:"usamos props para__ ",
+        resp:"Passar diferentes informações para componentes"
     },
     {
         question: "pergunta 8",
-        react:"usamos estad0 (state) para __"
+        react:"usamos estad0 (state) para __",
+        resp:"Dizer para o React quais informações quando atualizadas devem renderizar a tela novamente"
     }
 ]
-function Pergunta({question , index , react}){
-    const [card , setCard] = useState(0)
-    if(card === 0){
+function Pergunta({question , index , react , resp , feito}){
+    const [card , setCard] = useState({
+        etapa: 0,
+        resultado: ""
+      })
+    const {etapa, resultado} = card;
+    if(etapa === 0){
     return(
         <div key={index} className="pergunta">
             <h1 className="fonte">{question}</h1>
-            <img onClick={() => setCard(1)} className="diminuir" src={seta} alt="seta de pergunt" />
+            <img onClick={()=>setCard({...card, etapa: 1})} className="diminuir" src={seta} alt="seta de pergunt" />
         </div>
     )
     }
-    if(card === 1){
+    if(etapa === 1){
         return (
             <div key={index} className="react">
             <h1 className="fonte">{react}</h1>
-             <div>
-                 <h3 onClick={() => setCard(2)} className="red">red</h3>
-                 <h3  onClick={()=> setCard(3)}className="orange">yellow</h3>
-                 <h3  onClick={ () => setCard(4)} className="green">green</h3>
-             </div>
+            <img  onClick={() => setCard({...card, etapa: 2})} src={setinha} alt="seta de pergunt" />
         </div>
         )
     }
-    if(card === 2){
-        return(
-            <div key={index} className="pergunta">
-            <h1 className="fonte redLine">{question}</h1>
-            <img onClick={() => setCard(1)} className="diminuir" src={erro} alt="seta de pergunt" />
+if( etapa === 2){
+    const botoes = [
+        { texto: "Não lembrei", resultado: "erro" },
+        { texto: "Quase não lembrei", resultado: "duvida" },
+        { texto: "Zap!", resultado: "acerto"}
+    ]
+    return (
+          <div key={index} className="react">
+          <p>{resp}</p>
+          <div className="botoes">
+          {
+            botoes.map(({texto, resultado}) => {
+              return (
+                <button 
+                  key={resultado}
+                  className={resultado} 
+                  onClick={()=>  setCard({ etapa: 3 , resultado})}
+                   feito={resultado}
+                   
+
+                >
+                  {texto}
+                </button>
+              )
+            })
+         
+
+          }
+            
+          </div>
         </div>
+      )
+     
+    }
+
+    if(etapa === 3){
+        return (
+            <>
+                <div key={index} className="pergunta">
+                    <h1 className={` fonte Icone${resultado}`}>{question}</h1>
+                    <Icone icone={resultado}/>
+                </div>
+            </>
         )
     }
-   if(card === 3){
-       return(
-     <div key={index} className="pergunta">
-        <h1 className="fonte orangeLine">{question}</h1>
-        <img onClick={() => setCard(1)} className="diminuir" src={laranja} alt="seta de pergunt" />
-    </div>
-       )
-    }
-    if (card === 4) {
-        return(
-        <div key={index} className="pergunta">
-            <h1 className="fonte greenLine">{question}</h1>
-            <img onClick={() => setCard(1)} className="diminuir" src={verde} alt="seta de pergunt" />
-        </div>
-        )
-    }
+    
+
 }
 export default function Perguntas() {
     return (
@@ -101,6 +130,7 @@ export default function Perguntas() {
                  question = {perg.question}
                  index = {perg.index}
                  react = {perg.react}
+                 resp = {perg.resp}
                  />
               )
           })}

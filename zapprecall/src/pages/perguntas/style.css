@@ -31,34 +31,34 @@
     height: 100px;
     border-radius: 5px;
 }
-.red{
+.erro{
     background-color: #FF3030;
     width: 70px;
     height: 27px;
     border-radius:5px ;
 }
-.orange{
+.duvida{
     background-color: #FF922E;
     width: 70px;
     height: 27px;
     border-radius: 5px;
 }
-.green{
+.acerto{
     background-color: #2FBE34;
     width: 70px;
     height: 27px;
     border-radius: 5px;
 }
-.redLine{
+.Iconeerro{
     text-decoration: line-through;
     color: #FF3030;
    
 }
-.orangeLine{
+.Iconeduvida{
     text-decoration: line-through;
     color: #FF922E;
 }
-.greenLine{
+.Iconeacerto{
     text-decoration: line-through;
     color: #2FBE34;
 }
