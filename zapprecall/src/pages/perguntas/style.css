@@ -5,6 +5,7 @@
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
+    margin-top: 5px;
     
 }
 .diminuir{
@@ -76,4 +77,39 @@
     min-height: 80px;
    
     
+}
+.agrupar{
+    display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-top: 10%;
+   margin-bottom: 15%;
+}
+.centroPergunta{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.logoPequena{
+    width: 30px;
+    height: 40px;
+  
+
+}
+.name{
+width: 101.59px;
+height: 22px;
+
+font-family: 'Righteous';
+font-style: normal;
+font-weight: 400;
+font-size: 27px;
+line-height: 25px;
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: -0.012em;
+
+color: #FFFFFF;
 }

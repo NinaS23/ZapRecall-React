@@ -128,10 +128,10 @@ if( etapa === 2){
 }
 
     return (
-        <div>
-            <div>
-                <img src={logoZapPequena} alt="logo zap pequena" />
-                <h1>ZapRecall</h1>
+        <div className="centroPergunta">
+            <div className="agrupar">
+                <img className ="logoPequena" src={logoZapPequena} alt="logo zap pequena" />
+                <h1 className="name">ZapRecall</h1>
             </div>
           {perguntasObj.map((perg , index)=>{
               return(
