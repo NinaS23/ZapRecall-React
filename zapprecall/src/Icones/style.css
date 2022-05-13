@@ -6,6 +6,7 @@
 .Icone .duvida{
     text-decoration: line-through;
     color: #FF922E;
+    border-radius: 50%;
 }
 .Icone  .acerto{
     text-decoration: line-through;

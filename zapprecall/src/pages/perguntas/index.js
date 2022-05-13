@@ -1,3 +1,5 @@
+
+  
 import {  useState } from "react";
 import "./style.css";
 import Icone from "../../Icones";
@@ -48,6 +50,7 @@ const perguntasObj = [
         resp:"Dizer para o React quais informações quando atualizadas devem renderizar a tela novamente"
     }
 ]
+export default function Perguntas({resultado , etapa}) {
 function Pergunta({question , index , react , resp , feito }){
     const [card , setCard] = useState({
         etapa: 0,
@@ -120,10 +123,10 @@ if( etapa === 2){
             </>
         )
     }
-    
-
+    const info = {resultado , etapa}
+     return info;
 }
-export default function Perguntas() {
+
     return (
         <div>
             <div>
@@ -140,7 +143,7 @@ export default function Perguntas() {
                  />
               )
           })}
-         <Footer />
+         <Footer resultado={resultado} etapa={etapa} />
         </div>
     )
 }
