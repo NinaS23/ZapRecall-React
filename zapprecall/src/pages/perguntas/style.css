@@ -36,25 +36,30 @@
     display: block;
     position: relative;
     cursor: default;
+    margin-top: 5px;
+     
 
 }
 .erro{
     background-color: #FF3030;
-    width: 70px;
-    height: 27px;
+ 
     border-radius:5px ;
+    border: none;
 }
 .duvida{
     background-color: #FF922E;
-    width: 70px;
-    height: 27px;
+    
     border-radius: 5px;
+    border: none;
+    margin-left: 6px;
+
 }
 .acerto{
     background-color: #2FBE34;
-    width: 70px;
-    height: 27px;
+   
     border-radius: 5px;
+    border: none;
+    margin-left: 6px;
 }
 .Iconeerro{
     text-decoration: line-through;
@@ -96,6 +101,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 .logoPequena{
     width: 30px;
@@ -124,4 +130,31 @@ color: #FFFFFF;
   bottom: 15px;
   right: 15px;
   cursor: pointer
+}
+.botoes{
+    color: white;
+    width: 10px;
+    height: 40px;
+    border-radius: 4px;
+    padding: 2px 10px;
+    cursor: pointer;
+    border: none;
+    font-family: 'Recursive', cursive;
+    font-size: 12px;
+    display: flex;
+   margin-left: 30px;
+   position: relative;
+   margin-top: 25px;
+
+}
+.botoes *{
+    color: white;
+   
+    border-radius: 4px;
+    padding: 2px 10px;
+    cursor: pointer;
+    border: none;
+    font-family: 'Recursive', cursive;
+    font-size: 9px;
+
 }
