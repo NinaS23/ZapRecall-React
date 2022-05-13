@@ -71,7 +71,7 @@ function Pergunta({question , index , react , resp , feito }){
         return (
             <div key={index} className="react">
             <h1 className="fonte">{react}</h1>
-            <img  onClick={() => setCard({...card, etapa: 2})} src={setinha} alt="seta de pergunt" />
+            <img className="seta" onClick={() => setCard({...card, etapa: 2})} src={setinha} alt="seta de pergunt" />
         </div>
         )
     }
