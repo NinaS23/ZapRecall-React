@@ -142,6 +142,12 @@ const perguntasObj = [
         }
      }
 export default function Perguntas() {
+    perguntasObj.sort(comparador);
+
+function comparador() { 
+    return Math.random() - 0.5; 
+}
+
     return (
         <div className="centroPergunta">
             <div className="agrupar">
