@@ -8,7 +8,7 @@ const setinha = "assets/setinha.png"
 
 
 
-   export default function Perguntas({ question, index, react, resp ,icone ,setIcone , setFeito , feito  }) {
+   export default function Perguntas({funçao,  question, index, react, resp ,icone,total , setTotal ,setIcone ,  concluidos, callback }) {
         const [card, setCard] = useState({
             etapa: 0,
             resultado: "",
@@ -33,7 +33,7 @@ const setinha = "assets/setinha.png"
             )
         }
         if (etapa === 2) {
-          
+        
             const botoes = [
                 { texto: "Não lembrei", resultado: "erro" },
                 { texto: "Quase não lembrei", resultado: "duvida" },
@@ -41,9 +41,9 @@ const setinha = "assets/setinha.png"
             ]
           
             return (
-                <div key={index} className="react">
+                <div  key={index} className="react">
                     <p>{resp}</p>
-                    <div className="botoes">
+                    <div onClick={funçao} className="botoes">
                         {
                             botoes.map(({ texto, resultado }) => {
                                 return (
@@ -64,6 +64,7 @@ const setinha = "assets/setinha.png"
                         }
 
                     </div>
+                   
                 </div>
             )
 
@@ -82,7 +83,7 @@ const setinha = "assets/setinha.png"
            
         }
         if (resultado === "acerto") {
-         
+        
             return (
                 <div key={index} className="pergunta">
                     <h1 className={` fonte Icone${resultado}`}>{question}</h1>
@@ -97,7 +98,9 @@ const setinha = "assets/setinha.png"
                 <h1 className={` fonte Icone${resultado}`}>{question}</h1>
                 <img  className="imgResposta" src="assets/laranja.png" alt="" />
             </div>
-            )
-        }
-      
-     }
+           )
+       }
+       if(etapa === 2 ){
+           
+       }
+    }

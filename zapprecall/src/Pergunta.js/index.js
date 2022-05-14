@@ -51,8 +51,14 @@ export default function Pergunta() {
 function comparador() { 
     return Math.random() - 0.5; 
 }
-   const [feito , setFeito] = useState(0)
+const [total , setTotal] = useState(8)
+const [feito, setFeito] = useState(0);
+
    const [icone, setIcone] = useState("");
+   function Contador(){
+      setFeito(feito + 1)
+       setTotal(total -1)
+   }
     return (
         <div className="centroPergunta">
             <div className="agrupar">
@@ -66,14 +72,18 @@ function comparador() {
                         index={perg.index}
                         react={perg.react}
                         resp={perg.resp}
-                        feito={feito}
+                        feito={feito} 
                         setFeito={setFeito}
                         setIcone={icone}
+                       total={total}
+                       setTotal={setTotal}
+                       funçao={Contador}
+                       
                         
                     />
                 )
-            })}
-             <Footer feito={feito} setFeito={setFeito} icone={icone} setIcone={setIcone} />
+            })} 
+             <Footer  setTotal={setTotal} total={total}  feito={feito}  setFeito={setFeito} icone={icone} setIcone={setIcone} />
         </div>
     )
 }
