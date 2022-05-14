@@ -8,7 +8,7 @@ const setinha = "assets/setinha.png"
 
 
 
-   export default function Perguntas({funçao,  question, index, react, resp ,icone,total , setTotal ,setIcone ,  concluidos, callback }) {
+   export default function Perguntas({funçao, icone , setIcone,  question, index, react, resp ,  }) {
         const [card, setCard] = useState({
             etapa: 0,
             resultado: "",
@@ -35,7 +35,7 @@ const setinha = "assets/setinha.png"
         if (etapa === 2) {
         
             const botoes = [
-                { texto: "Não lembrei", resultado: "erro" },
+                { texto: "Não lembrei", resultado: "erro"  },
                 { texto: "Quase não lembrei", resultado: "duvida" },
                 { texto: "Zap!", resultado: "acerto" }
             ]
@@ -50,7 +50,7 @@ const setinha = "assets/setinha.png"
                                     <button
                                         key={resultado}
                                         className={resultado}
-                                        onClick={() => setCard({ etapa: 3, resultado })}
+                                        onClick={() => setCard({ etapa: 3, resultado   })}
                                         
 
 
@@ -80,6 +80,7 @@ const setinha = "assets/setinha.png"
                    
                 </>
             )
+        
            
         }
         if (resultado === "acerto") {
@@ -100,7 +101,8 @@ const setinha = "assets/setinha.png"
             </div>
            )
        }
-       if(etapa === 2 ){
-           
+       if(resultado === "erro"){
+           setIcone("erro")
        }
+     
     }

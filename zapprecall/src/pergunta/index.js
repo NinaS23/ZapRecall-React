@@ -51,14 +51,16 @@ export default function Pergunta() {
 function comparador() { 
     return Math.random() - 0.5; 
 }
+
 const [total , setTotal] = useState(8)
 const [feito, setFeito] = useState(0);
+const [icone, setIcone] = useState("");
 
-   const [icone, setIcone] = useState("");
    function Contador(){
       setFeito(feito + 1)
        setTotal(total -1)
    }
+  
     return (
         <div className="centroPergunta">
             <div className="agrupar">
@@ -74,16 +76,17 @@ const [feito, setFeito] = useState(0);
                         resp={perg.resp}
                         feito={feito} 
                         setFeito={setFeito}
-                        setIcone={icone}
+                        setIcone={setIcone}
                        total={total}
                        setTotal={setTotal}
                        funçao={Contador}
-                       
+                       icone={icone}
+                                  
                         
                     />
                 )
             })} 
-             <Footer  setTotal={setTotal} total={total}  feito={feito}  setFeito={setFeito} icone={icone} setIcone={setIcone} />
+             <Footer   total={total}  feito={feito}  icone={icone} />
         </div>
     )
 }

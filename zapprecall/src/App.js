@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Inicio from "./pages/Inicio";
-import Pergunta from "./Pergunta.js";
+import Pergunta from "./pergunta";
+
 
 export default function App(){
     const [page ,setPage] = useState(false)
@@ -15,8 +16,7 @@ export default function App(){
         return(
          
              
-            <Pergunta/> 
-     
+           <Pergunta />
         )
     }
   
