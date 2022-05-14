@@ -1,17 +1,17 @@
 import { useState } from "react"
 
 
-export default function Footer({etapa}){
-    const [count , setCount] = useState(0)
+export default function Footer({feito , setFeito,etapa}){
     const [total , setTotal] = useState(8)
     
     function AjustarContador(){
-        if(etapa === 2){
-             setCount(count + 1)
-             setTotal(total - 1)
+        if(feito){
+           setFeito(feito + 1)
+          setTotal(total - 1)
         }
+        console.log(feito)
     }
     return (
-        <footer onClick={AjustarContador} className="finalPage"> {count} / {total} CONCLUÍDOS</footer>
+        <footer onClick={AjustarContador} className="finalPage"> {feito} / {total} CONCLUÍDOS</footer>
     )
 }
