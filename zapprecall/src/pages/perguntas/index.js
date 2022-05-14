@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import "./style.css";
-import Icone from "../../Icones";
+
 import Footer from "../footer";
 
 const logoZapPequena = "assets/logo-pequeno.png"
@@ -52,7 +52,7 @@ const perguntasObj = [
     }
 ]
 
-export default function Perguntas({ resultado, etapa }) {
+
     function Pergunta({ question, index, react, resp }) {
         const [card, setCard] = useState({
             etapa: 0,
@@ -111,23 +111,37 @@ export default function Perguntas({ resultado, etapa }) {
             )
 
         }
-        if (etapa === 3) {
+        if (resultado === "erro") {
 
             return (
                 <>
                     <div key={index} className="pergunta">
                         <h1 className={` fonte Icone${resultado}`}>{question}</h1>
-                        <Icone icone={resultado} />
+                        <img  className="imgResposta" src="assets/Vector.png" alt="" />
                     </div>
                    
                 </>
             )
            
         }
-        const info = { resultado, etapa }
-        return info;
-    }
-
+        if (resultado === "acerto") {
+            return (
+                <div key={index} className="pergunta">
+                    <h1 className={` fonte Icone${resultado}`}>{question}</h1>
+                    <img className="imgResposta" src="assets/certo.png" alt="" />
+                </div>
+            )
+        }
+        if (resultado === "duvida") {
+            return(
+            <div key={index} className="pergunta">
+                <h1 className={` fonte Icone${resultado}`}>{question}</h1>
+                <img  className="imgResposta" src="assets/laranja.png" alt="" />
+            </div>
+            )
+        }
+     }
+export default function Perguntas() {
     return (
         <div className="centroPergunta">
             <div className="agrupar">
